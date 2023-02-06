@@ -10,10 +10,10 @@
     <img src="./assets/logo.png" class="logo" />
   </div>
 
-  <Container :image ="image" :post="post" :step="step"/>
-
-  <button @click="more">더보기</button>
-
+  <Container @write="writePost = $event" :image ="image" :post="post" :step="step"/>
+  <div class="add">
+  <button v-if="step == 0" @click="more">더보기</button>
+  </div>
   <div class="footer">
     <ul class="footer-button-plus">
       <input @change="upload" accept="image/*" type="file" id="file" class="inputfile" />
@@ -88,6 +88,10 @@ body {
 ul {
   padding: 5px;
   list-style-type: none;
+}
+.add{
+  width: 100px;
+  margin: 0 auto;
 }
 .logo {
   width: 22px;
